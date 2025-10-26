@@ -21,15 +21,15 @@ Popis instanci :
 - Saudi Aramco (2222.SR)
 
 Opis atributa :
-simbol - Simbol dionice
-naziv_tvrtke - Ime tvrtke
-sektor - Sektor djelatnosti
-datum - Datum trgovanja
-cijena_otvaranja - Cijena na početku dana
-cijena_zatvaranja - Cijena na kraju dana
-najvisa_cijena - Najviša cijena dana
-najniza_cijena - Najniža cijena dana
-postotak_promjene - Promjena cijene u postocima
-volumen - Volumen trgovanja, mjerna jedinica : broj dionica
-trzisna_kapitalizacija - Tržišna kapitalizacija, mjerna jedinica : USD
+- simbol - Simbol dionice
+- naziv_tvrtke - Ime tvrtke
+- sektor - Sektor djelatnosti
+- datum - Datum trgovanja
+- cijena_otvaranja - Cijena na početku dana
+- cijena_zatvaranja - Cijena na kraju dana
+- najvisa_cijena - Najviša cijena dana
+- najniza_cijena - Najniža cijena dana
+- postotak_promjene - Promjena cijene u postocima
+- volumen - Volumen trgovanja, mjerna jedinica : broj dionica
+- trzisna_kapitalizacija - Tržišna kapitalizacija, mjerna jedinica : USD
 
