@@ -1,12 +1,12 @@
 # Promjene cijena dionica
 
-Licenca : Creative Commons Attribution 4.0 International (CC BY 4.0)
-Autor : Marko Kovačev
-Verzija : 1.0
-Jezik : Hrvatski
-Broj instanci : 10
-Broj atributa : 11
-Raspon datuma : 24.10.2025
+- Licenca : Creative Commons Attribution 4.0 International (CC BY 4.0)
+- Autor : Marko Kovačev
+- Verzija : 1.0
+- Jezik : Hrvatski
+- Broj instanci : 10
+- Broj atributa : 11
+- Raspon datuma : 24.10.2025
 
 Popis instanci :
 - Apple Inc. (AAPL)
