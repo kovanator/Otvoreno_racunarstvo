@@ -1,1 +1,0 @@
-# Otvoreno_racunarstvo
