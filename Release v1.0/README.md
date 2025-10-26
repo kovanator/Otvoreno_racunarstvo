@@ -8,7 +8,7 @@
 - Broj atributa : 11
 - Raspon datuma : 24.10.2025
 
-Popis instanci :
+## Popis instanci :
 - Apple Inc. (AAPL)
 - Microsoft Corporation (MSFT)
 - Nvidia Corporation (NVDA)
@@ -20,7 +20,7 @@ Popis instanci :
 - Taiwan Semiconductor (TSM)
 - Saudi Aramco (2222.SR)
 
-Opis atributa :
+## Opis atributa :
 - simbol - Simbol dionice
 - naziv_tvrtke - Ime tvrtke
 - sektor - Sektor djelatnosti
