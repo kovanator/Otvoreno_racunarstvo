@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id" : "https://github.com/kovanator/Otvoreno_racunarstvo/blob/main/Release%202.0/dionice_i_dnevne_promjene.json",
+  "title": "Promjene cijena dionica",
+  "description" : "Dnevne promjene cijena dionica najvećih 10 tvrtki na svijetu",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "simbol": {
+        "type": "string"
+      },
+      "naziv_tvrtke": {
+        "type": "string"
+      },
+      "sektor": {
+        "type": "string"
+      },
+      "trzisna_kapitalizacija": {
+        "type": "number"
+      },
+      "dnevne_promjene": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "simbol": {
+              "type": "string"
+            },
+            "datum": {
+              "type": "string"
+            },
+            "cijena_otvaranja": {
+              "type": "number"
+            },
+            "cijena_zatvaranja": {
+              "type": "number"
+            },
+            "najvisa_cijena": {
+              "type": "number"
+            },
+            "najniza_cijena": {
+              "type": "number"
+            },
+            "postotak_promjene": {
+              "type": "number"
+            },
+            "volumen": {
+              "type": "number"
+            }
+          },
+          "required": [
+            "simbol",
+            "datum",
+            "cijena_otvaranja",
+            "cijena_zatvaranja",
+            "najvisa_cijena",
+            "najniza_cijena",
+            "postotak_promjene",
+            "volumen"
+          ]
+        }
+      }
+    },
+    "required": [
+      "simbol",
+      "naziv_tvrtke",
+      "sektor",
+      "trzisna_kapitalizacija",
+      "dnevne_promjene"
+    ]
+  }
+}
