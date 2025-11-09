@@ -1,0 +1,65 @@
+<html>
+
+<head>
+    <title>Tablica s podacima</title>
+</head>
+
+<body>
+    <h1 style="text-align:center">Tablica s podacima</h1>
+    
+    <h2>Filtriraj po datumu : </h2>
+    <input type="date" id="dateInput" onchange="filterByDate()">
+    <button type="button" onclick="clearDateFilter()">Poništi datum</button>
+    
+    <br>
+    
+    <h2>Filtriraj po tekstu : </h2>
+    <form id="filterForm">
+        <input type="text" id="searchInput" placeholder="Unesite tekst">
+        <select id="attributeSelect">
+            <option value="svi">Svi atributi</option>
+            <option value="simbol">Simbol dionice</option>
+            <option value="naziv_tvrtke">Ime tvrtke</option>
+        </select>
+        <button type="button" onclick="filterByText()">Filtriraj podatke</button>
+        <button type="button" onclick="clearTextFilter()">Poništi tekst</button>
+    </form>
+
+    <br><hr><br>
+
+    <table id="dataTable" border="1" style="width: 100%; border-collapse: collapse; text-align: center;">
+        <thead>
+            <tr>
+                <th>Simbol dionice</th>
+                <th>Ime tvrtke</th>
+                <th>Sektor djelatnosti</th>
+                <th>Datum trgovanja</th>
+                <th>Cijena na početku dana</th>
+                <th>Cijena na kraju dana</th>
+                <th>Najviša cijena dana</th>
+                <th>Najniža cijena dana</th>
+                <th>Promjena cijene u postocima</th>
+                <th>Volumen trgovanja</th>
+                <th>Tržišna kapitalizacija (USD)</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            <!-- Podaci -->
+        </tbody>
+    </table>
+
+    <br><hr><br>
+
+    <div>
+        <button onclick="downloadFilteredCSV()">Preuzmi filtrirani CSV</button>
+        <button onclick="downloadFilteredJSON()">Preuzmi filtrirani JSON</button>
+    </div>
+
+    <br>
+
+    <a href="index.html">Natrag na početnu stranicu</a>
+
+    <script src="datatable.js"></script>
+</body>
+
+</html>

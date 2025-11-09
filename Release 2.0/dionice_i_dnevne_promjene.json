@@ -1,0 +1,262 @@
+[
+  {
+    "simbol": "TSLA",
+    "naziv_tvrtke": "Tesla",
+    "sektor": "Automobilska industrija",
+    "trzisna_kapitalizacija": 1442000000000,
+    "dnevne_promjene": [
+      {
+        "simbol": "TSLA",
+        "datum": "2025-10-24",
+        "cijena_otvaranja": 446.83,
+        "cijena_zatvaranja": 433.72,
+        "najvisa_cijena": 451.68,
+        "najniza_cijena": 430.17,
+        "postotak_promjene": -2.93,
+        "volumen": 94408400
+      },
+      {
+        "simbol": "TSLA",
+        "datum": "2025-10-23",
+        "cijena_otvaranja": 420.00,
+        "cijena_zatvaranja": 449.98,
+        "najvisa_cijena": 449.40,
+        "najniza_cijena": 413.90,
+        "postotak_promjene": 7.13,
+        "volumen": 126709800
+      }
+    ]
+  },
+  {
+    "simbol": "TSM",
+    "naziv_tvrtke": "TSMC",
+    "sektor": "Tehnologija",
+    "trzisna_kapitalizacija": 1529000000000,
+    "dnevne_promjene": [
+      {
+        "simbol": "TSM",
+        "datum": "2025-10-24",
+        "cijena_otvaranja": 295.57,
+        "cijena_zatvaranja": 294.96,
+        "najvisa_cijena": 297.75,
+        "najniza_cijena": 294.39,
+        "postotak_promjene": -0.21,
+        "volumen": 8731100
+      },
+      {
+        "simbol": "TSM",
+        "datum": "2025-10-23",
+        "cijena_otvaranja": 289.90,
+        "cijena_zatvaranja": 290.73,
+        "najvisa_cijena": 294.09,
+        "najniza_cijena": 289.63,
+        "postotak_promjene": 0.29,
+        "volumen": 10379900
+      }
+    ]
+  },
+  {
+    "simbol": "2222.SR",
+    "naziv_tvrtke": "Saudi Aramco",
+    "sektor": "Energija",
+    "trzisna_kapitalizacija": 1667000000000,
+    "dnevne_promjene": [
+      {
+        "simbol": "2222.SR",
+        "datum": "2025-10-24",
+        "cijena_otvaranja": 26.00,
+        "cijena_zatvaranja": 25.86,
+        "najvisa_cijena": 26.16,
+        "najniza_cijena": 25.66,
+        "postotak_promjene": -0.54,
+        "volumen": 29079561
+      }
+    ]
+  },
+  {
+    "simbol": "AVGO",
+    "naziv_tvrtke": "Broadcom",
+    "sektor": "Tehnologija",
+    "trzisna_kapitalizacija": 1670000000000,
+    "dnevne_promjene": [
+      {
+        "simbol": "AVGO",
+        "datum": "2025-10-24",
+        "cijena_otvaranja": 352.51,
+        "cijena_zatvaranja": 354.13,
+        "najvisa_cijena": 358.30,
+        "najniza_cijena": 350.87,
+        "postotak_promjene": 0.46,
+        "volumen": 16143739
+      }
+    ]
+  },
+  {
+    "simbol": "META",
+    "naziv_tvrtke": "Meta Platforms Inc.",
+    "sektor": "Tehnologija",
+    "trzisna_kapitalizacija": 1850000000000,
+    "dnevne_promjene": [
+      {
+        "simbol": "META",
+        "datum": "2025-10-24",
+        "cijena_otvaranja": 736.79,
+        "cijena_zatvaranja": 738.36,
+        "najvisa_cijena": 741.41,
+        "najniza_cijena": 731.15,
+        "postotak_promjene": 0.21,
+        "volumen": 9137700
+      }
+    ]
+  },
+  {
+    "simbol": "AMZN",
+    "naziv_tvrtke": "Amazon.com Inc.",
+    "sektor": "Potrošački sektor",
+    "trzisna_kapitalizacija": 2390000000000,
+    "dnevne_promjene": [
+      {
+        "simbol": "AMZN",
+        "datum": "2025-10-24",
+        "cijena_otvaranja": 221.97,
+        "cijena_zatvaranja": 224.21,
+        "najvisa_cijena": 225.40,
+        "najniza_cijena": 221.90,
+        "postotak_promjene": 1.01,
+        "volumen": 38620200
+      }
+    ]
+  },
+  {
+    "simbol": "GOOGL",
+    "naziv_tvrtke": "Alphabet Inc.",
+    "sektor": "Tehnologija",
+    "trzisna_kapitalizacija": 3150000000000,
+    "dnevne_promjene": [
+      {
+        "simbol": "GOOGL",
+        "datum": "2025-10-24",
+        "cijena_otvaranja": 256.58,
+        "cijena_zatvaranja": 259.92,
+        "najvisa_cijena": 261.68,
+        "najniza_cijena": 255.31,
+        "postotak_promjene": 2.70,
+        "volumen": 28655126
+      }
+    ]
+  },
+  {
+    "simbol": "MSFT",
+    "naziv_tvrtke": "Microsoft",
+    "sektor": "Tehnologija",
+    "trzisna_kapitalizacija": 3892000000000,
+    "dnevne_promjene": [
+      {
+        "simbol": "MSFT",
+        "datum": "2025-10-24",
+        "cijena_otvaranja": 425.26,
+        "cijena_zatvaranja": 424.73,
+        "najvisa_cijena": 425.34,
+        "najniza_cijena": 422.90,
+        "postotak_promjene": -0.13,
+        "volumen": 15532360
+      },
+      {
+        "simbol": "MSFT",
+        "datum": "2025-10-23",
+        "cijena_otvaranja": 522.46,
+        "cijena_zatvaranja": 520.65,
+        "najvisa_cijena": 523.95,
+        "najniza_cijena": 518.61,
+        "postotak_promjene": -0.34,
+        "volumen": 14023500
+      }
+    ]
+  },
+  {
+    "simbol": "AAPL",
+    "naziv_tvrtke": "Apple",
+    "sektor": "Tehnologija",
+    "trzisna_kapitalizacija": 3900000000000,
+    "dnevne_promjene": [
+      {
+        "simbol": "AAPL",
+        "datum": "2025-10-24",
+        "cijena_otvaranja": 261.19,
+        "cijena_zatvaranja": 262.82,
+        "najvisa_cijena": 264.13,
+        "najniza_cijena": 259.18,
+        "postotak_promjene": 1.25,
+        "volumen": 38253720
+      },
+      {
+        "simbol": "AAPL",
+        "datum": "2025-10-23",
+        "cijena_otvaranja": 259.94,
+        "cijena_zatvaranja": 259.58,
+        "najvisa_cijena": 260.62,
+        "najniza_cijena": 258.01,
+        "postotak_promjene": -0.14,
+        "volumen": 32754900
+      },
+      {
+        "simbol": "AAPL",
+        "datum": "2025-10-22",
+        "cijena_otvaranja": 262.65,
+        "cijena_zatvaranja": 258.45,
+        "najvisa_cijena": 262.85,
+        "najniza_cijena": 255.43,
+        "postotak_promjene": -1.52,
+        "volumen": 45015300
+      }
+    ]
+  },
+  {
+    "simbol": "NVDA",
+    "naziv_tvrtke": "Nvidia",
+    "sektor": "Tehnologija",
+    "trzisna_kapitalizacija": 4530000000000,
+    "dnevne_promjene": [
+      {
+        "simbol": "NVDA",
+        "datum": "2025-10-24",
+        "cijena_otvaranja": 183.83,
+        "cijena_zatvaranja": 186.26,
+        "najvisa_cijena": 187.47,
+        "najniza_cijena": 183.50,
+        "postotak_promjene": 1.34,
+        "volumen": 131296700
+      },
+      {
+        "simbol": "NVDA",
+        "datum": "2025-10-23",
+        "cijena_otvaranja": 180.42,
+        "cijena_zatvaranja": 182.16,
+        "najvisa_cijena": 183.03,
+        "najniza_cijena": 179.79,
+        "postotak_promjene": 0.96,
+        "volumen": 111363700
+      },
+      {
+        "simbol": "NVDA",
+        "datum": "2025-10-22",
+        "cijena_otvaranja": 181.14,
+        "cijena_zatvaranja": 180.28,
+        "najvisa_cijena": 183.44,
+        "najniza_cijena": 176.76,
+        "postotak_promjene": 1.27,
+        "volumen": 162249600
+      },
+      {
+        "simbol": "NVDA",
+        "datum": "2025-10-21",
+        "cijena_otvaranja": 182.79,
+        "cijena_zatvaranja": 181.16,
+        "najvisa_cijena": 182.79,
+        "najniza_cijena": 179.80,
+        "postotak_promjene": -0.89,
+        "volumen": 124240200
+      }
+    ]
+  }
+]
