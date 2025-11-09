@@ -6,7 +6,7 @@
 - Jezik : Hrvatski
 - Broj instanci : 10
 - Broj atributa : 11
-- Raspon datuma : 24.10.2025
+- Raspon datuma : 21.10.2025 - 24.10.2025
 
 ## Popis instanci :
 - Apple Inc. (AAPL)
