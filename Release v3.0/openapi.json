@@ -1,0 +1,671 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "API za informacije o dionicama",
+        "version": "1.0.0",
+        "contact": {
+            "name": "Podrska API-ja",
+            "email": "mk56061@fer.hr"
+        },
+        "license": {
+            "name": "CC BY-SA 4.0"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000",
+            "description": "Lokalni server"
+        }
+    ],
+    "components": {
+        "schemas": {
+            "Dionica": {
+                "type": "object",
+                "required": ["simbol", "naziv_tvrtke", "sektor"],
+                "properties": {
+                    "simbol": {
+                        "type": "string",
+                        "example": "AAPL",
+                        "description": "Simbol dionice"
+                    },
+                    "naziv_tvrtke": {
+                        "type": "string",
+                        "example": "Apple Inc.",
+                        "description": "Puni naziv tvrtke"
+                    },
+                    "sektor": {
+                        "type": "string",
+                        "example": "Tehnologija",
+                        "description": "Sektor u kojem tvrtka djeluje"
+                    },
+                    "trzisna_kapitalizacija": {
+                        "type": "integer",
+                        "example": 3900000000000,
+                        "description": "Tržišna kapitalizacija u USD"
+                    },
+                    "dnevne_promjene": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/DnevnaPromjena"
+                        },
+                        "description": "Lista dnevnih trgovačkih podataka"
+                    }
+                }
+            },
+            
+            "DnevnaPromjena": {
+                "type": "object",
+                "required": ["datum", "cijena_otvaranja", "cijena_zatvaranja"],
+                "properties": {
+                    "simbol": {
+                        "type": "string",
+                        "example": "AAPL",
+                        "description": "Simbol dionice"
+                    },
+                    "datum": {
+                        "type": "string",
+                        "format": "date",
+                        "example": "2025-10-24",
+                        "description": "Datum trgovanja"
+                    },
+                    "cijena_otvaranja": {
+                        "type": "number",
+                        "minimum": 0,
+                        "example": 261.19,
+                        "description": "Cijena na otvaranju dana"
+                    },
+                    "cijena_zatvaranja": {
+                        "type": "number",
+                        "minimum": 0,
+                        "example": 262.82,
+                        "description": "Cijena na zatvaranju dana"
+                    },
+                    "najvisa_cijena": {
+                        "type": "number",
+                        "minimum": 0,
+                        "example": 264.13,
+                        "description": "Najviša cijena dana"
+                    },
+                    "najniza_cijena": {
+                        "type": "number",
+                        "minimum": 0,
+                        "example": 259.18,
+                        "description": "Najniža cijena dana"
+                    },
+                    "postotak_promjene": {
+                        "type": "number",
+                        "example": 1.25,
+                        "description": "Postotak promjene cijene"
+                    },
+                    "volumen": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "example": 38253720,
+                        "description": "Volumen trgovanja u broju dionica"
+                    }
+                }
+            },           
+            "NovaDionica": {
+                "type": "object",
+                "required": ["simbol", "naziv_tvrtke", "sektor"],
+                "properties": {
+                    "simbol": {
+                        "type": "string",
+                        "example": "FB",
+                        "description": "Simbol dionice"
+                    },
+                    "naziv_tvrtke": {
+                        "type": "string",
+                        "example": "Meta Platforms Inc.",
+                        "description": "Naziv tvrtke"
+                    },
+                    "sektor": {
+                        "type": "string",
+                        "example": "Tehnologija",
+                        "description": "Sektor djelatnosti"
+                    },
+                    "trzisna_kapitalizacija": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "example": 500000000000,
+                        "description": "Početna tržišna kapitalizacija"
+                    }
+                }
+            },
+                
+            "AzuriranjeDionice": {
+                "type": "object",
+                "properties": {
+                    "naziv_tvrtke": {
+                        "type": "string",
+                        "example": "Apple Inc.",
+                        "description": "Novi naziv tvrtke"
+                    },
+                    "sektor": {
+                        "type": "string",
+                        "example": "Tehnologija",
+                        "description": "Novi sektor"
+                    },
+                    "trzisna_kapitalizacija": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "example": 4000000000000,
+                    "description": "Nova tržišna kapitalizacija"
+                    }
+                }
+            },
+            "TopBottomDionice":{
+                "type": "object",
+                "properties": {
+                    "simbol": {
+                        "type": "string",
+                        "example": "TSLA",
+                        "description": "Simbol dionice"
+                    },
+                    "naziv_tvrtke": {
+                        "type": "string",
+                        "example": "Tesla Inc.",
+                        "description": "Naziv tvrtke"
+                    },
+                    "sektor": {
+                        "type": "string", 
+                        "example": "Automobilska industrija",
+                        "description": "Sektor dionice"
+                    },
+                    "dnevna_promjena": {
+                        "$ref": "#/components/schemas/DnevnaPromjena"
+                    },
+                    "rang": {
+                        "type": "integer",
+                        "example": 1,
+                        "description": "Rang na top/bottom listi (1 je najviši)"
+                    }
+                }
+            },
+            "ResponseWrapper": {
+                "type": "object",
+                "properties": {
+                    "status": {
+                        "type": "string",
+                        "example": "OK",
+                        "description": "Status odgovora"
+                    },
+                    "message": {
+                        "type": "string",
+                        "example": "Dionice uspješno dohvaćene",
+                        "description": "Poruka o rezultatu operacije"
+                    },
+                    "response": {
+                    "oneOf": [
+                        {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/Dionica"
+                            }
+                        },
+                        {
+                            "$ref": "#/components/schemas/Dionica"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                            "$ref": "#/components/schemas/TopBottomDionice"
+                            }
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Podaci odgovora ili null za greške"
+                    }
+                },
+                "required": ["status", "message", "response"]
+            }
+        }
+    },
+    "paths": {
+        "/api/dionice":{
+            "get": {
+                "summary": "Dohvati sve dionice",
+                "description": "Vraća popis svih dostupnih dionica s njihovim informacijama.",
+                "responses": {
+                    "200": {
+                        "description": "Uspjesno dohvaćene dionice",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Dionice nisu pronadene",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Greška servera",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post":{
+                "summary": "Dodaj novu dionicu",
+                "description": "Omogucava dodavanje nove dionice u bazu podataka.",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/NovaDionica"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Dionica uspjesno dodana",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Neispravan zahtjev",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    },
+                    "500":{
+                        "description": "Greška servera",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/dionice/{simbol}":{
+            "get":{
+                "summary": "Dohvati dionicu po simbolu",
+                "description": "Vraca informacije o dionici na temelju njenog simbola.",
+                "parameters": [
+                    {
+                        "name": "simbol",
+                        "in": "path",
+                        "required": true,
+                        "description": "Simbol dionice koja se dohvaća (AAPL, TSLA, ...)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Uspjesno dohvaćena dionica",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Dionica nije pronadena",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    },
+                    "500":{
+                        "description": "Greška servera",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put":{
+                "summary": "Azuriraj dionicu po simbolu",
+                "description": "Azuriranje informacija o dionici na temelju njenog simbola.",
+                "parameters": [
+                    {
+                        "name": "simbol",
+                        "in": "path",
+                        "required": true,
+                        "description": "Simbol dionice koja se azurira (AAPL, TSLA, ...)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AzuriranjeDionice"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Dionica uspjesno azurirana",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Neispravan zahtjev",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Dionica nije pronadena",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    },
+                    "500":{
+                        "description": "Greška servera",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete":{
+                "summary": "Izbrisi dionicu po simbolu",
+                "description": "Brisanje dionice iz baze podataka na temelju njenog simbola.",
+                "parameters": [
+                    {
+                        "name": "simbol",
+                        "in": "path",
+                        "required": true,
+                        "description": "Simbol dionice koja se brise (AAPL, TSLA, ...)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "204": {
+                        "description": "Dionica uspjesno izbrisana",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Dionica nije pronadena",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    },
+                    "500":{
+                        "description": "Greška servera",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/dionice/sektor/{sektor}":{
+            "get":{
+                "summary": "Dohvati dionice po sektoru",
+                "description": "Vraca popis dionica koje pripadaju trazenom sektoru.",
+                "parameters": [
+                    {
+                        "name": "sektor",
+                        "in": "path",
+                        "required": true,
+                        "description": "Sektor dionica koje se dohvaćaju (Tehnologija, Energija, ...)",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Uspjesno dohvacene dionice",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"                           
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Dionice nisu pronadene",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    },
+                    "500":{
+                        "description": "Greška servera",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/dionice/top/{broj}":{
+            "get":{
+                "summary": "Dohvati top dionice",
+                "description": "Vraca popis top dionica na temelju zadanog broja.",
+                "parameters": [
+                    {
+                        "name": "broj",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 50
+                        },
+                        "description": "Broj dionica za vratiti (1-50)"
+                    },
+                    {
+                        "name": "datum",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                        },
+                        "example": "2025-10-24",
+                        "description": "Datum za analizu (YYYY-MM-DD). Ako nije naveden, koristi se najnoviji dostupni datum."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Uspjesno dohvacene top dionice",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"                                    
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Neispravan zahtjev",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Dionice nisu pronadene",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }   
+                    },
+                    "500":{
+                        "description": "Greška servera",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/dionice/bottom/{broj}":{
+            "get":{
+                "summary": "Dohvati bottom dionice",
+                "description": "Vraca popis bottom dionica na temelju zadanog broja.",
+                "parameters": [
+                    {
+                        "name": "broj",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "integer",
+                            "minimum": 1,
+                            "maximum": 50
+                        },
+                        "description": "Broj dionica za vratiti (1-50)"
+                    },
+                    {
+                        "name": "datum",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string",
+                            "format": "date",
+                            "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+                        },
+                        "example": "2025-10-24",
+                        "description": "Datum za query (?datum=YYYY-MM-DD). Ako nije naveden, koristi se najnoviji dostupni datum."
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Uspjesno dohvacene bottom dionice",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Neispravan zahtjev",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }   
+                    },
+                    "404": {
+                        "description": "Dionice nisu pronadene",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }   
+                        }
+                    },
+                    "500":{
+                        "description": "Greška servera",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseWrapper"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}
